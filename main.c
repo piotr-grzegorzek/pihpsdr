@@ -113,7 +113,7 @@ static void* wisdom_thread(void *arg) {
 // but added the correct return values.
 //
 gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data) {
-
+   int i;
    if (radio != NULL) {
 	  if (event->keyval == GDK_KEY_space) {
 		  
@@ -140,6 +140,22 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data) {
 		 vfo_move(-step,TRUE);
 		 return TRUE;
 	  }
+	  if (event->keyval == GDK_KEY_r ) {
+	         i=vfo_get_stepindex();
+                 vfo_set_step_from_index(++i);
+		 g_idle_add(ext_vfo_update, NULL); 
+		 return TRUE;
+	  }
+	  if (event->keyval == GDK_KEY_e ) {
+	         i=vfo_get_stepindex();
+                 vfo_set_step_from_index(--i);
+		 g_idle_add(ext_vfo_update, NULL); 
+		 return TRUE;
+	  }
+	  if (event->keyval == GDK_KEY_x ) {
+		 vfo_move(-step,TRUE);
+		 return TRUE;
+	  }	   
   }
   
   return FALSE;
