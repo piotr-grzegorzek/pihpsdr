@@ -152,7 +152,17 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data) {
 		 g_idle_add(ext_vfo_update, NULL); 
 		 return TRUE;
 	  }
-	  if (event->keyval == GDK_KEY_x ) {
+
+	  if (event->keyval == GDK_KEY_q ) {
+	         cw_keyer_speed = cw_keyer_speed - 1; 
+		 return TRUE;
+	  }
+	  if (event->keyval == GDK_KEY_w ) {
+	         cw_keyer_speed = cw_keyer_speed + 1;  
+		 return TRUE;
+	  }
+	   
+	  if (event->keyval == GDK_KEY_z ) {
 		 vfo_move(-step,TRUE);
 		 return TRUE;
 	  }	   
