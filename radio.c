@@ -281,7 +281,7 @@ int tune=0;
 int memory_tune=0;
 int full_tune=0;
 int have_rx_gain=0;
-int rx_gain_calibration=20;
+int rx_gain_calibration=14;
 
 //long long displayFrequency=14250000;
 //long long ddsFrequency=14250000;
@@ -813,7 +813,7 @@ void start_radio() {
 	    case DEVICE_HERMES_LITE:
 	    case DEVICE_HERMES_LITE2:
 		have_rx_gain=1;
-		rx_gain_calibration=20;
+		rx_gain_calibration=14;
 		break;
 	    default:
 		have_rx_gain=0;
@@ -826,7 +826,7 @@ void start_radio() {
 	    case NEW_DEVICE_HERMES_LITE:
 	    case NEW_DEVICE_HERMES_LITE2:
 		have_rx_gain=1;
-		rx_gain_calibration=20;
+		rx_gain_calibration=14;
 		break;
 	    default:
 		have_rx_gain=0;
