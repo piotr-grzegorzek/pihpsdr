@@ -281,7 +281,7 @@ int tune=0;
 int memory_tune=0;
 int full_tune=0;
 int have_rx_gain=0;
-int rx_gain_calibration=14;
+int rx_gain_calibration=20;
 
 //long long displayFrequency=14250000;
 //long long ddsFrequency=14250000;
