@@ -20,13 +20,13 @@ GPIO_INCLUDE=GPIO
 PURESIGNAL_INCLUDE=PURESIGNAL
 
 # uncomment the line below to include MIDI support
-MIDI_INCLUDE=MIDI
+#MIDI_INCLUDE=MIDI
 
 # uncomment the line below to include USB Ozy support
 # USBOZY_INCLUDE=USBOZY
 
 # uncomment the line to below include support local CW keyer
-LOCALCW_INCLUDE=LOCALCW
+#LOCALCW_INCLUDE=LOCALCW
 
 # uncomment the line below for SoapySDR
 #SOAPYSDR_INCLUDE=SOAPYSDR
