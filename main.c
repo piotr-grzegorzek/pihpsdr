@@ -173,7 +173,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
       // cw_keyer_speed = cw_keyer_speed - 1;
       // if (cw_keyer_speed < 5) cw_keyer_speed = 5;
-      vfo_move(-100000, TRUE);
+      vfo_move(100000, TRUE);
       g_idle_add(ext_vfo_update, NULL);
       return TRUE;
     }
@@ -181,7 +181,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
       // cw_keyer_speed = cw_keyer_speed + 1;
       // if (cw_keyer_speed > 50) cw_keyer_speed = 50;
-      vfo_move(100000, TRUE);
+      vfo_move(-100000, TRUE);
       g_idle_add(ext_vfo_update, NULL);
       return TRUE;
     }
