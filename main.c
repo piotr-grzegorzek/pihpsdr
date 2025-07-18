@@ -232,6 +232,13 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
           return TRUE;
     }      
 
+
+        if (event->keyval == GDK_KEY_f)
+    {     
+          update_zoom(+1);
+          return TRUE;
+    }      
+
     //rit on/off
     if (event->keyval == GDK_KEY_g)
     {     
