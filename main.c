@@ -158,21 +158,21 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     
     
     // This is a hack to allow the 17m band to be selected
-    if (event->keyval == GDK_KEY_5)
+    if (event->keyval == GDK_KEY_8)
     {
           vfo_band_changed(active_receiver->id,band17);
           g_idle_add(ext_vfo_update, NULL);
     }     
 
     // This is a hack to allow the 15m band to be selected
-    if (event->keyval == GDK_KEY_6)
+    if (event->keyval == GDK_KEY_7)
     {
           vfo_band_changed(active_receiver->id,band15);
           g_idle_add(ext_vfo_update, NULL);
     }   
 
     // This is a hack to allow the 12m band to be selected
-    if (event->keyval == GDK_KEY_7)
+    if (event->keyval == GDK_KEY_6)
     {
           vfo_band_changed(active_receiver->id,band12);
           g_idle_add(ext_vfo_update, NULL);
@@ -180,7 +180,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
 
 
     // This is a hack to allow the 10m band to be selected
-    if (event->keyval == GDK_KEY_8)
+    if (event->keyval == GDK_KEY_5)
     {
           vfo_band_changed(active_receiver->id,band10);
           g_idle_add(ext_vfo_update, NULL);
@@ -193,6 +193,55 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
           vfo_mode_changed(modeLSB);
           g_idle_add(ext_vfo_update, NULL);
     }
+
+    // This is a hack to allow USB to be selected
+    if (event->keyval == GDK_KEY_0)
+    {
+          vfo_mode_changed(modeUSB);
+          g_idle_add(ext_vfo_update, NULL);
+    }
+
+
+    // This is a hack to allow CWL to be selected
+    if (event->keyval == GDK_KEY_a)
+    {
+          vfo_mode_changed(modeCWL);
+          g_idle_add(ext_vfo_update, NULL);
+    }
+
+
+    // This is a hack to allow CWU to be selected
+    if (event->keyval == GDK_KEY_b)
+    {
+          vfo_mode_changed(modeCWU);
+          g_idle_add(ext_vfo_update, NULL);
+    }
+
+
+    // This is a hack to allow ZOOM- to be selected
+    if (event->keyval == GDK_KEY_f)
+    {
+          update_zoom(-1);
+          g_idle_add(ext_vfo_update, NULL);
+    }
+
+
+    // This is a hack to allow ZOOM+ to be selected
+    if (event->keyval == GDK_KEY_p)
+    {
+          update_zoom(+1);
+          g_idle_add(ext_vfo_update, NULL);
+    }    
+
+
+    // This is a hack to allow FILTER- to be selected
+    if (event->keyval == GDK_KEY_o)
+    {
+          int f=vfo[active_receiver->id].filter-1;
+          if(f<0) f=FILTERS-1;
+          vfo_filter_changed(f);
+          g_idle_add(ext_vfo_update, NULL);
+    }  
 
 
 
