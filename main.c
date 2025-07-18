@@ -190,8 +190,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     // This is a hack to allow LSB to be selected
     if (event->keyval == GDK_KEY_9)
     {
-          vfo_set_mode(active_receiver->id, MODE_LSB);
-          //vfo_mode_changed(mode);
+          vfo_mode_changed(modeLSB);
           g_idle_add(ext_vfo_update, NULL);
     }
 
