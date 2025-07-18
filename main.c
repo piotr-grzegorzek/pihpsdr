@@ -290,6 +290,22 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
       g_idle_add(ext_vfo_update, NULL);
       return TRUE;
     }
+
+    //memory
+    if (event->keyval == GDK_KEY_l)
+    {
+      start_store();
+      return TRUE;
+    }
+
+
+    //noise
+    if (event->keyval == GDK_KEY_k)
+    {
+      start_noise();
+      return TRUE;
+    }    
+
  
     if (event->keyval == GDK_KEY_d)
     {
