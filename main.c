@@ -120,38 +120,86 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
   int i;
   if (radio != NULL)
   {
-
+    // LOCK
     if (event->keyval == GDK_KEY_space)
     {
           locked=locked==1?0:1;
           g_idle_add(ext_vfo_update, NULL);
     }     
 
-
+    // This is a hack to allow the 80m band to be selected
     if (event->keyval == GDK_KEY_1)
     {
           vfo_band_changed(active_receiver->id,band80);
           g_idle_add(ext_vfo_update, NULL);
     }       
 
-
+    // This is a hack to allow the 40m band to be selected
     if (event->keyval == GDK_KEY_2)
     {
           vfo_band_changed(active_receiver->id,band40);
           g_idle_add(ext_vfo_update, NULL);
     }  
-    
-    
-        if (event->keyval == GDK_KEY_3)
+   
+    // This is a hack to allow the 30m band to be selected
+    if (event->keyval == GDK_KEY_3)
     {
           vfo_band_changed(active_receiver->id,band30);
           g_idle_add(ext_vfo_update, NULL);
     }      
 
 
+    // This is a hack to allow the 20m band to be selected
+    if (event->keyval == GDK_KEY_4)
+    {
+          vfo_band_changed(active_receiver->id,band20);
+          g_idle_add(ext_vfo_update, NULL);
+    }        
+    
+    
+    // This is a hack to allow the 17m band to be selected
+    if (event->keyval == GDK_KEY_5)
+    {
+          vfo_band_changed(active_receiver->id,band17);
+          g_idle_add(ext_vfo_update, NULL);
+    }     
+
+    // This is a hack to allow the 15m band to be selected
+    if (event->keyval == GDK_KEY_6)
+    {
+          vfo_band_changed(active_receiver->id,band15);
+          g_idle_add(ext_vfo_update, NULL);
+    }   
+
+    // This is a hack to allow the 12m band to be selected
+    if (event->keyval == GDK_KEY_7)
+    {
+          vfo_band_changed(active_receiver->id,band12);
+          g_idle_add(ext_vfo_update, NULL);
+    } 
+
+
+    // This is a hack to allow the 10m band to be selected
+    if (event->keyval == GDK_KEY_8)
+    {
+          vfo_band_changed(active_receiver->id,band10);
+          g_idle_add(ext_vfo_update, NULL);
+    }
+  
+
+    // This is a hack to allow LSB to be selected
+    if (event->keyval == GDK_KEY_9)
+    {
+          vfo_set_mode(active_receiver->id, MODE_LSB);
+          //vfo_mode_changed(mode);
+          g_idle_add(ext_vfo_update, NULL);
+    }
+
+
+
+    // Tune
     if (event->keyval == GDK_KEY_n)
     {
-
       fprintf(stderr, "space");
 
       if (getTune() == 1)
@@ -173,20 +221,21 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
       g_idle_add(ext_vfo_update, NULL);
       return TRUE;
     }
-
-
-
-
+ 
     if (event->keyval == GDK_KEY_d)
     {
       vfo_move(step, TRUE);
       return TRUE;
     }
+
+    //
     if (event->keyval == GDK_KEY_u)
     {
       vfo_move(-step, TRUE);
       return TRUE;
     }
+
+    // Step up
     if (event->keyval == GDK_KEY_r)
     {
       i = vfo_get_stepindex();
@@ -194,6 +243,8 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
       g_idle_add(ext_vfo_update, NULL);
       return TRUE;
     }
+
+    // Step down
     if (event->keyval == GDK_KEY_e)
     {
       i = vfo_get_stepindex();
@@ -202,6 +253,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
       return TRUE;
     }
 
+    // VFO +100kHz
     if (event->keyval == GDK_KEY_q)
     {
       // cw_keyer_speed = cw_keyer_speed - 1;
@@ -210,6 +262,8 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
       g_idle_add(ext_vfo_update, NULL);
       return TRUE;
     }
+
+    // VFO -100kHz
     if (event->keyval == GDK_KEY_w)
     {
       // cw_keyer_speed = cw_keyer_speed + 1;
