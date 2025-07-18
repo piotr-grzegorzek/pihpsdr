@@ -230,19 +230,22 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
           return TRUE;
     }
 
-
-    // This is a hack to allow ZOOM- to be selected
-    if (event->keyval == GDK_KEY_f)
-    {
-          set_zoom(active_receiver->id,1);
-          g_idle_add(ext_vfo_update, NULL);
+    if (event->keyval == GDK_KEY_c)
+    {     
+          start_filter();
           return TRUE;
-    }
+    }      
 
 
+    if (event->keyval == GDK_KEY_g)
+    {     
+          vfo_rit_update(active_receiver->id);
+          g_idle_add(ext_vfo_update,NULL); 
+          return TRUE;
+    }          
 
 
-
+    // tune
     if (event->keyval == GDK_KEY_m)
     {
         if(getMox()==1) {
