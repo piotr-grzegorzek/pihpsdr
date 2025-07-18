@@ -256,13 +256,9 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_i)
     {     
           vfo_rit(active_receiver->id,-1);
-	        if(timer==0) {
-  	        timer=g_timeout_add(250,timeout_cb,a);
-	          timer_released=FALSE;
-	        }
-	        free_action=FALSE;
           g_idle_add(ext_vfo_update,NULL); 
-          return TRUE;
+          return TRUE;         
+
     }   
 
 
