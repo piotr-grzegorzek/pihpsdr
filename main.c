@@ -234,7 +234,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     // This is a hack to allow ZOOM- to be selected
     if (event->keyval == GDK_KEY_f)
     {
-          update_zoom(-1);
+          update_zoom(1);
           g_idle_add(ext_vfo_update, NULL);
           return TRUE;
     }
@@ -243,7 +243,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     // This is a hack to allow ZOOM+ to be selected
     if (event->keyval == GDK_KEY_p)
     {
-          update_zoom(+1);
+          update_zoom(8);
           g_idle_add(ext_vfo_update, NULL);
           return TRUE;
     }    
