@@ -255,7 +255,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
 
 
     //rit plus
-    if (event->keyval == GDK_KEY_i)
+    if (event->keyval == GDK_KEY_j)
     {     
           vfo_rit(active_receiver->id,+1);
           return TRUE;         
