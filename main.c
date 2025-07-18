@@ -125,6 +125,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           locked=locked==1?0:1;
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }     
 
     // This is a hack to allow the 80m band to be selected
@@ -132,6 +133,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           vfo_band_changed(active_receiver->id,band80);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }       
 
     // This is a hack to allow the 40m band to be selected
@@ -139,6 +141,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           vfo_band_changed(active_receiver->id,band40);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }  
    
     // This is a hack to allow the 30m band to be selected
@@ -146,6 +149,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           vfo_band_changed(active_receiver->id,band30);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }      
 
 
@@ -154,6 +158,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           vfo_band_changed(active_receiver->id,band20);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }        
     
     
@@ -162,6 +167,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           vfo_band_changed(active_receiver->id,band17);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }     
 
     // This is a hack to allow the 15m band to be selected
@@ -169,6 +175,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           vfo_band_changed(active_receiver->id,band15);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }   
 
     // This is a hack to allow the 12m band to be selected
@@ -176,6 +183,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           vfo_band_changed(active_receiver->id,band12);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     } 
 
 
@@ -184,6 +192,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           vfo_band_changed(active_receiver->id,band10);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }
 
     
@@ -192,6 +201,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           vfo_mode_changed(modeCWL);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }
 
 
@@ -200,6 +210,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           vfo_mode_changed(modeCWU);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }
 
 
@@ -208,6 +219,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           vfo_mode_changed(modeLSB);//modeLSB);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }
 
     // This is a hack to allow USB to be selected
@@ -215,6 +227,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           vfo_mode_changed(modeUSB);//modeUSB);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }
 
 
@@ -223,6 +236,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           update_zoom(-1);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }
 
 
@@ -231,6 +245,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     {
           update_zoom(+1);
           g_idle_add(ext_vfo_update, NULL);
+          return TRUE;
     }    
 
 
@@ -241,7 +256,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
           if(f<0) f=FILTERS-1;
           vfo_filter_changed(f);
           g_idle_add(ext_vfo_update, NULL);
-          
+          return TRUE;
     }  
 
 
