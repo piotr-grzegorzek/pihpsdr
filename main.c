@@ -235,7 +235,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
 
         if (event->keyval == GDK_KEY_f)
     {     
-          update_zoom(+1);
+          set_zoom(active_receiver->id,MAX_ZOOM);
           return TRUE;
     }      
 
