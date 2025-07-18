@@ -120,6 +120,15 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
   int i;
   if (radio != NULL)
   {
+
+    if (event->keyval == GDK_KEY_space)
+    {
+          locked=locked==1?0:1;
+          g_idle_add(ext_vfo_update, NULL);
+    }     
+
+
+/*
     if (event->keyval == GDK_KEY_space)
     {
 
@@ -144,6 +153,10 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
       g_idle_add(ext_vfo_update, NULL);
       return TRUE;
     }
+*/
+
+
+
     if (event->keyval == GDK_KEY_d)
     {
       vfo_move(step, TRUE);
