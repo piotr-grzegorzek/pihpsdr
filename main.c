@@ -132,7 +132,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_1)
     {
           vfo_band_changed(active_receiver->id,band80);
-          g_idle_add(ext_vfo_update, NULL);
+
           return TRUE;
     }       
 
@@ -140,7 +140,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_2)
     {
           vfo_band_changed(active_receiver->id,band40);
-          g_idle_add(ext_vfo_update, NULL);
+
           return TRUE;
     }  
    
@@ -148,7 +148,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_3)
     {
           vfo_band_changed(active_receiver->id,band30);
-          g_idle_add(ext_vfo_update, NULL);
+
           return TRUE;
     }      
 
@@ -157,7 +157,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_4)
     {
           vfo_band_changed(active_receiver->id,band20);
-          g_idle_add(ext_vfo_update, NULL);
+
           return TRUE;
     }        
     
@@ -166,7 +166,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_8)
     {
           vfo_band_changed(active_receiver->id,band17);
-          g_idle_add(ext_vfo_update, NULL);
+
           return TRUE;
     }     
 
@@ -174,7 +174,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_7)
     {
           vfo_band_changed(active_receiver->id,band15);
-          g_idle_add(ext_vfo_update, NULL);
+
           return TRUE;
     }   
 
@@ -182,7 +182,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_6)
     {
           vfo_band_changed(active_receiver->id,band12);
-          g_idle_add(ext_vfo_update, NULL);
+
           return TRUE;
     } 
 
@@ -191,7 +191,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_5)
     {
           vfo_band_changed(active_receiver->id,band10);
-          g_idle_add(ext_vfo_update, NULL);
+
           return TRUE;
     }
 
@@ -200,7 +200,6 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_a)
     {
           vfo_mode_changed(modeCWL);
-          g_idle_add(ext_vfo_update, NULL);
           return TRUE;
     }
 
@@ -209,7 +208,6 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_b)
     {
           vfo_mode_changed(modeCWU);
-          g_idle_add(ext_vfo_update, NULL);
           return TRUE;
     }
 
@@ -218,7 +216,6 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_9)
     {
           vfo_mode_changed(modeLSB);//modeLSB);
-          g_idle_add(ext_vfo_update, NULL);
           return TRUE;
     }
 
@@ -226,7 +223,6 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_0)
     {
           vfo_mode_changed(modeUSB);//modeUSB);
-          g_idle_add(ext_vfo_update, NULL);
           return TRUE;
     }
 
@@ -240,7 +236,6 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_g)
     {     
           vfo_rit_update(active_receiver->id);
-          g_idle_add(ext_vfo_update,NULL); 
           return TRUE;
     }          
 
@@ -248,7 +243,6 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_h)
     {     
           vfo_rit_clear(active_receiver->id);
-          g_idle_add(ext_vfo_update,NULL); 
           return TRUE;
     }      
     
@@ -256,10 +250,16 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_i)
     {     
           vfo_rit(active_receiver->id,-1);
-          g_idle_add(ext_vfo_update,NULL); 
           return TRUE;         
-
     }   
+
+
+    //rit plus
+    if (event->keyval == GDK_KEY_i)
+    {     
+          vfo_rit(active_receiver->id,+1);
+          return TRUE;         
+    }       
 
 
 
