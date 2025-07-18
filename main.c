@@ -128,8 +128,8 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     }     
 
 
-/*
-    if (event->keyval == GDK_KEY_space)
+
+    if (event->keyval == GDK_KEY_n)
     {
 
       fprintf(stderr, "space");
@@ -153,7 +153,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
       g_idle_add(ext_vfo_update, NULL);
       return TRUE;
     }
-*/
+
 
 
 
