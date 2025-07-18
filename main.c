@@ -315,7 +315,7 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
 
 
     //noise
-    if (event->keyval == GDK_KEY_k)
+    if (event->keyval == GDK_KEY_o)
     {
       start_noise();
       return TRUE;
