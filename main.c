@@ -249,19 +249,24 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     }    
 
 
-    // This is a hack to allow FILTER- to be selected
-    if (event->keyval == GDK_KEY_o)
+    if (event->keyval == GDK_KEY_m)
     {
-          int f=vfo[active_receiver->id].filter-1;
-          if(f<0) f=FILTERS-1;
-          vfo_filter_changed(f);
-          g_idle_add(ext_vfo_update, NULL);
-          return TRUE;
-    }  
+        if(getMox()==1) {
+          setMox(0);
+        }
+        if(getTune()==0) {
+          if(canTransmit() || tx_out_of_band) {
+            setTune(1);
+          } else {
+            transmitter_set_out_of_band(transmitter);
+          }
+        } else {
+          setTune(0);
+        }
+        g_idle_add(ext_vfo_update,NULL);      
+    }
 
-
-
-    // Tune
+    // MOX
     if (event->keyval == GDK_KEY_n)
     {
       fprintf(stderr, "space");
