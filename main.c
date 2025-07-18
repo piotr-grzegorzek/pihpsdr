@@ -185,23 +185,8 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
           vfo_band_changed(active_receiver->id,band10);
           g_idle_add(ext_vfo_update, NULL);
     }
-  
 
-    // This is a hack to allow LSB to be selected
-    if (event->keyval == GDK_KEY_9)
-    {
-          vfo_mode_changed(modeCWL);//modeLSB);
-          g_idle_add(ext_vfo_update, NULL);
-    }
-
-    // This is a hack to allow USB to be selected
-    if (event->keyval == GDK_KEY_0)
-    {
-          vfo_mode_changed(modeCWU);//modeUSB);
-          g_idle_add(ext_vfo_update, NULL);
-    }
-
-
+    
     // This is a hack to allow CWL to be selected
     if (event->keyval == GDK_KEY_a)
     {
@@ -214,6 +199,23 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     if (event->keyval == GDK_KEY_b)
     {
           vfo_mode_changed(modeCWU);
+          g_idle_add(ext_vfo_update, NULL);
+    }
+
+
+
+
+    // This is a hack to allow LSB to be selected
+    if (event->keyval == GDK_KEY_9)
+    {
+          vfo_mode_changed(modeLSB);//modeLSB);
+          g_idle_add(ext_vfo_update, NULL);
+    }
+
+    // This is a hack to allow USB to be selected
+    if (event->keyval == GDK_KEY_0)
+    {
+          vfo_mode_changed(modeUSB);//modeUSB);
           g_idle_add(ext_vfo_update, NULL);
     }
 
