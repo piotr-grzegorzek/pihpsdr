@@ -128,6 +128,26 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     }     
 
 
+    if (event->keyval == GDK_KEY_1)
+    {
+          vfo_band_changed(active_receiver->id,band80);
+          g_idle_add(ext_vfo_update, NULL);
+    }       
+
+
+    if (event->keyval == GDK_KEY_2)
+    {
+          vfo_band_changed(active_receiver->id,band40);
+          g_idle_add(ext_vfo_update, NULL);
+    }  
+    
+    
+        if (event->keyval == GDK_KEY_3)
+    {
+          vfo_band_changed(active_receiver->id,band30);
+          g_idle_add(ext_vfo_update, NULL);
+    }      
+
 
     if (event->keyval == GDK_KEY_n)
     {
