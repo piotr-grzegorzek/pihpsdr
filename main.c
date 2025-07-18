@@ -236,11 +236,12 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
 
     // This is a hack to allow FILTER- to be selected
     if (event->keyval == GDK_KEY_o)
-    {
+    {/*
           int f=vfo[active_receiver->id].filter-1;
           if(f<0) f=FILTERS-1;
           vfo_filter_changed(f);
           g_idle_add(ext_vfo_update, NULL);
+          */
     }  
 
 
