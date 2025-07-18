@@ -203,8 +203,6 @@ gboolean keypress_cb(GtkWidget *widget, GdkEventKey *event, gpointer data)
     }
 
 
-
-
     // This is a hack to allow LSB to be selected
     if (event->keyval == GDK_KEY_9)
     {
